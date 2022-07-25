@@ -33,12 +33,14 @@ namespace WpfWidgetsFramework
             frame.Content = widget;
             widget.OnEnabled();
 
-
+            Width = widget.Size.X;
+            Height = widget.Size.Y;
         }
 
         private void WindowClose(object sender, RoutedEventArgs e)
         {
-
+            widget.OnDisabled();
+            Close();
         }
 
         private void WindowTopMost(object sender, RoutedEventArgs e)
@@ -53,8 +55,7 @@ namespace WpfWidgetsFramework
 
         private void ExitApplication(object sender, RoutedEventArgs e)
         {
-            widget.OnDisabled();
-            Close();
+            
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

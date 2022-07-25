@@ -6,11 +6,8 @@
     <UseWPF>true</UseWPF>
 	<EnableDynamicLoading>true</EnableDynamicLoading>
 	<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+	<BaseOutputPath>bin\</BaseOutputPath>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
 
   <ItemGroup>
 	  <ProjectReference Include="..\WidgetBase\WidgetSDK.csproj">
@@ -18,5 +15,9 @@
 		  <ExcludeAssets>runtime</ExcludeAssets>
 	  </ProjectReference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)&quot; &quot;$(SolutionDir)WpfWidgetsFramework\bin\Debug\net6.0-windows\Plugins\TestPlugin&quot; /y" />
+  </Target>
 
 </Project>

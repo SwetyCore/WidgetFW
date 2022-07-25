@@ -46,7 +46,7 @@ namespace WpfWidgetsFramework.Common
             PluginLoadContext loadContext = new PluginLoadContext(pluginLocation);
             return loadContext.LoadFromAssemblyName(new AssemblyName(Path.GetFileNameWithoutExtension(pluginLocation)));
         }
-        public void Load()
+        public IEnumerable<IPlugin> Load()
         {
             string ROOT_FOLDER = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
@@ -62,10 +62,11 @@ namespace WpfWidgetsFramework.Common
                 return CreatePluginInstances(pluginAssembly);
             }).ToList();
 
-            foreach (var item in Plugins)
-            {
-                new WidgetWindow(item.Widgets.First()).Show();
-            }
+            return Plugins;
+            //foreach (var item in Plugins)
+            //{
+            //    new WidgetWindow(item.Widgets.First()).Show();
+            //}
         }
 
         class PluginLoadContext : AssemblyLoadContext

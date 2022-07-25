@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,24 +14,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WidgetBase;
-using WpfWidgetsFramework.Common;
 
-namespace WpfWidgetsFramework
+namespace WpfWidgetsFramework.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// WidgetsManage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PluginsManage : Page
     {
-        public IEnumerable<IPlugin> Plugins { get; set; }
-        public MainWindow()
+        VM.PluginManage vm = new ();
+        public PluginsManage()
         {
             InitializeComponent();
 
-            Plugins = new PluginLoader().Load();
+            var mw = Application.Current.MainWindow as MainWindow;
+
+            vm.Plugins = (List<IPlugin>)mw.Plugins;
+
+            DataContext = vm;
         }
-
-
-
     }
+
 }

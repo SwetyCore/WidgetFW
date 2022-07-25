@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfWidgetsFramework"
         mc:Ignorable="d"
-        Style="{StaticResource UiWindow}"
+        WindowStyle="None"
+        AllowsTransparency="True"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Title="WidgetWindow" Height="450" Width="800">

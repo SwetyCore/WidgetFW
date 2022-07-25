@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace WidgetBase
@@ -29,6 +30,7 @@ namespace WidgetBase
         public Action OnDisabled { get; }
         public Page Widget { get; }
         public Object Config { get;set;}
+        public Point Size { get; }
     }
     
 }

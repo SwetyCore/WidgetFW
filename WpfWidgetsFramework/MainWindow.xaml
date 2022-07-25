@@ -8,9 +8,13 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         Style="{StaticResource UiWindow}"
         Background="{DynamicResource ApplicationBackgroundBrush}"
-
+        xmlns:pg="clr-namespace:WpfWidgetsFramework.Pages"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <ui:TitleBar
   Title="WPF UI - Fluent design system"
   Grid.Row="0">
@@ -30,6 +34,50 @@
                 </ui:NotifyIcon>
             </ui:TitleBar.Tray>
         </ui:TitleBar>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ui:NavigationStore
+            x:Name="RootNavigation"
+            
+                Grid.Row="1"
+                Grid.Column="0"
+            Frame="{Binding ElementName=RootFrame}"
+            SelectedPageIndex="0">
+                <ui:NavigationStore.Items>
+                    <ui:NavigationItem
+                    Content="小部件管理"
+                    Icon="Apps24"
+                    PageType="{x:Type pg:WidgetsManage}"
+                    Tag="wmanage" Cursor="Hand" />
+                    <ui:NavigationItem
+                    Content="个性化"
+                    Icon="PaintBrush24"
+                        Tag="custom"
+                    PageType="{x:Type pg:WidgetsManage}"
+                    Cursor="Hand" />
+                    <ui:NavigationItem
+                    Content="插件管理"
+                    Icon="PuzzlePiece24"
+                        Tag="plugin"
+                    PageType="{x:Type pg:PluginsManage}"
+                    Cursor="Hand" />
+                </ui:NavigationStore.Items>
+                <ui:NavigationStore.Footer>
+                    <ui:NavigationItem
+                    Content="关于"                    
+                    Icon="Info24"
+                    PageType="{x:Type pg:WidgetsManage}"
+                    Tag="关于" Cursor="Hand" />
+                </ui:NavigationStore.Footer>
+            </ui:NavigationStore>
+            <Frame
+            x:Name="RootFrame"
+            Grid.Column="1"
+            Margin="8,0,0,0" />
+        </Grid>
 
     </Grid>
 </Window>

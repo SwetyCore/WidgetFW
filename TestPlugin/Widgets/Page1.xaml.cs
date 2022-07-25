@@ -25,11 +25,11 @@ namespace TestPlugin.Widgets
         {
             InitializeComponent();
         }
-        public string WName => throw new NotImplementedException();
+        public string WName => "测试部件名称";
 
-        public string UID => throw new NotImplementedException();
+        public string UID => "dwyfguiop2134e";
 
-        public string Description => throw new NotImplementedException();
+        public string Description => "测试描述";
 
         public Action OnEnabled => ()=>{ };
 
@@ -38,5 +38,8 @@ namespace TestPlugin.Widgets
         public Page Widget => this;
 
         public object Config { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        //50+8
+        public Point Size => new(50,50);
     }
 }
