@@ -29,6 +29,9 @@ namespace WidgetBase
         public Action OnEnabled { get;  }
         public Action OnDisabled { get; }
         public Page Widget { get; }
+
+        public Window WWindow { get; set; }
+
         public Object Config { get;set;}
         public Point Size { get; }
     }

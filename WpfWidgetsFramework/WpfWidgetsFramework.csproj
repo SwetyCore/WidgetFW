@@ -16,10 +16,17 @@
     <Compile Update="Pages\PluginsManage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="WidgetWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <Page Update="Pages\PluginsManage.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WidgetWindow.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

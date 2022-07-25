@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace TestPlugin.Widgets
     /// Page1.xaml 的交互逻辑
     /// </summary>
     public partial class Page1 : Page, IWidget
-    {
+    { 
         public Page1()
         {
             InitializeComponent();
@@ -31,15 +32,23 @@ namespace TestPlugin.Widgets
 
         public string Description => "测试描述";
 
-        public Action OnEnabled => ()=>{ };
+        public Action OnEnabled => ()=>{
 
-        public Action OnDisabled => () => { };
+        };
+
+        public Action OnDisabled => () => 
+        { 
+            this.WWindow = null;
+
+        };
 
         public Page Widget => this;
 
-        public object Config { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public object Config { get; set; }
 
         //50+8
         public Point Size => new(50,50);
+
+        public Window WWindow { get; set; } =null;
     }
 }

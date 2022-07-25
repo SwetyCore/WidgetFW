@@ -31,7 +31,7 @@ namespace WpfWidgetsFramework
             InitializeComponent();
             widget = t;
             frame.Content = widget;
-            widget.OnEnabled();
+            widget.WWindow = this;
 
             Width = widget.Size.X;
             Height = widget.Size.Y;
@@ -39,7 +39,6 @@ namespace WpfWidgetsFramework
 
         private void WindowClose(object sender, RoutedEventArgs e)
         {
-            widget.OnDisabled();
             Close();
         }
 
@@ -61,6 +60,11 @@ namespace WpfWidgetsFramework
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void Window_LocationChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

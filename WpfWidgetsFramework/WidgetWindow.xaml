@@ -9,6 +9,7 @@
         AllowsTransparency="True"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        LocationChanged="Window_LocationChanged"
         Title="WidgetWindow" Height="450" Width="800">
     <Window.ContextMenu>
         <ContextMenu>
