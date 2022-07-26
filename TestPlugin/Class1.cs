@@ -23,7 +23,8 @@ namespace TestPlugin
 
         public IEnumerable<IWidget> Widgets => new List<IWidget>()
         {
-            new TestPlugin.Widgets.Page1()
+            new TestPlugin.Widgets.ResMonitor(),
+            new TestPlugin.Widgets.Clock()
         };
 
         public int Execute()

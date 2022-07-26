@@ -35,13 +35,15 @@ namespace WpfWidgetsFramework
             Top = ws.position.Y;
             Left = ws.position.X;
 
-            Width = widget.Size.X;
-            Height = widget.Size.Y;
+            Width = widget.Size.X*1.25;
+            Height = widget.Size.Y*1.25;
         }
 
         private void WindowClose(object sender, RoutedEventArgs e)
         {
             ws.enabled = false;
+
+            ws.widget.WWindow = null;
             //App app = Application.Current as App;
             //app.wmvm.Status.FirstOrDefault().enabled = false;
             Close();

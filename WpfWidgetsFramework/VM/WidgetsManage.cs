@@ -42,6 +42,8 @@ namespace WpfWidgetsFramework.VM
                         {
                             widget.WWindow.Close();
                             widget.OnDisabled();
+                            widget.WWindow = null;
+
                         }
 
 

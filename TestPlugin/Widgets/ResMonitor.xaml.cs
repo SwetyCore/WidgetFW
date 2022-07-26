@@ -23,7 +23,7 @@ namespace TestPlugin.Widgets
     /// <summary>
     /// Page1.xaml 的交互逻辑
     /// </summary>
-    public partial class Page1 : Page, IWidget
+    public partial class ResMonitor : Page, IWidget
     {
         VM.Monitor vm = new VM.Monitor();
         DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 1) };
@@ -48,7 +48,7 @@ namespace TestPlugin.Widgets
             public void VisitParameter(IParameter parameter) { }
         }
 
-        public Page1()
+        public ResMonitor()
         {
             new Gauge();
             InitializeComponent();
@@ -68,7 +68,7 @@ namespace TestPlugin.Widgets
         public object Config { get; set; }
 
         //30*4-10
-        public Point Size => new( 230,110);
+        public Point Size => new( 200,100);
 
         public Window WWindow { get; set; } = null;
 
@@ -90,7 +90,6 @@ namespace TestPlugin.Widgets
 
         public Action OnDisabled => () =>
         {
-            this.WWindow = null;
             mycom.Close();
             timer.Stop();
 

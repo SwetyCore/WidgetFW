@@ -20,7 +20,7 @@
             <ui:MenuItem SymbolIcon="Dismiss24" Click="ExitApplication" Header="退出程序"/>
         </ContextMenu>
     </Window.ContextMenu>
-    <Grid>
+    <Grid Margin="5">
         <Frame x:Name="frame"/>
     </Grid>
 </Window>
