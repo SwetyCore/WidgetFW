@@ -42,7 +42,7 @@ namespace WpfWidgetsFramework.Common
         static Assembly LoadPlugin(string pluginLocation)
         {
 
-            Console.WriteLine($"Loading commands from: {pluginLocation}");
+            Console.WriteLine($"Loading plugins from: {pluginLocation}");
             PluginLoadContext loadContext = new PluginLoadContext(pluginLocation);
             return loadContext.LoadFromAssemblyName(new AssemblyName(Path.GetFileNameWithoutExtension(pluginLocation)));
         }
@@ -58,6 +58,7 @@ namespace WpfWidgetsFramework.Common
             {
                 var entery= File.ReadAllText(Path.Combine(pluginPath, "index.txt"));
                 string plugin_main = Path.Combine(pluginPath,entery );
+                //plugin_main = @"C:\Users\SwetyCore\source\repos\WpfWidgetsFramework\WpfWidgetsFramework\bin\Debug\net6.0-windows\Plugins\TestPlugin\TestPlugin.dll";
                 Assembly pluginAssembly = LoadPlugin(plugin_main);
                 return CreatePluginInstances(pluginAssembly);
             }).ToList();
@@ -72,8 +73,7 @@ namespace WpfWidgetsFramework.Common
         class PluginLoadContext : AssemblyLoadContext
         {
             private AssemblyDependencyResolver _resolver;
-            //C:\Users\SwetyCore\source\repos\WpfWidgetsFramework\WpfWidgetsFramework\bin\Debug\net6.0-windows\Plugins\test1
-            //C:\Users\SwetyCore\source\repos\WpfWidgetsFramework\bin\Debug\net6.0-windows\Plugins\test1\TestPlugin.dll
+
             public PluginLoadContext(string pluginPath)
             {
                 _resolver = new AssemblyDependencyResolver(pluginPath);

@@ -49,7 +49,16 @@ namespace WpfWidgetsFramework
 
         private void WindowTopMost(object sender, RoutedEventArgs e)
         {
-            Topmost = true;
+            Topmost = !Topmost;
+            if (Topmost)
+            {
+                topmostMI.Header = "取消置顶";
+            }
+            else
+            {
+                topmostMI.Header = "窗口置顶";
+
+            }
         }
 
         private void ShowSetting(object sender, RoutedEventArgs e)

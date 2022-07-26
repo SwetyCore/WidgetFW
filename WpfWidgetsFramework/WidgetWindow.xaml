@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="True"
+        Background="Transparent"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         LocationChanged="Window_LocationChanged"
@@ -14,7 +15,7 @@
     <Window.ContextMenu>
         <ContextMenu>
             <ui:MenuItem SymbolIcon="ArrowExit20" Click="WindowClose" Header="关闭插件"/>
-            <ui:MenuItem SymbolIcon="Pin24" Click="WindowTopMost" Header="窗口置顶"/>
+            <ui:MenuItem x:Name="topmostMI" SymbolIcon="Pin24" Click="WindowTopMost" Header="窗口置顶"/>
             <ui:MenuItem SymbolIcon="Window24" Click="ShowSetting" Header="打开设置"/>
             <ui:MenuItem SymbolIcon="Dismiss24" Click="ExitApplication" Header="退出程序"/>
         </ContextMenu>

@@ -4,11 +4,53 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestPlugin.Widgets"
+      xmlns:vm="clr-namespace:TestPlugin.VM"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="110" d:DesignWidth="230"
+      d:DataContext="{d:DesignInstance Type=vm:Monitor}"
+      
       Title="Page1">
+    <Border CornerRadius="10" Background="White">
 
-    <Grid>
-        <TextBlock>233333333</TextBlock>
-    </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Margin="0 10 10 10">
+                <Border CornerRadius="10" Padding="0 14 10 14">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="28"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Foreground="gray" Text="CPU"/>
+                        <TextBlock Foreground="gray" Grid.Row="1" Text="内存"/>
+
+                        <TextBlock Grid.Column="1" Foreground="Gray" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                            <Run Foreground="#3399ff" FontSize="30"  Text="{Binding CPULoadAvr}"/>
+                            <Run Text="%"/>
+                        </TextBlock>
+                        <TextBlock Foreground="Gray" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right">
+
+                            <Run Foreground="OrangeRed" FontSize="30" Text="{Binding MEMLoadAvr}"/>
+                            <Run Text="%"/>
+                        </TextBlock>
+                    </Grid>
+                </Border>
+
+            </Grid>
+            <Grid Margin="10">
+                <lvc:Gauge Margin="0" Uses360Mode="True" Foreground="Transparent" From="0" To="100" Value="{Binding CPULoadAvr}"/>
+                <lvc:Gauge Margin="18" Uses360Mode="True" GaugeActiveFill="OrangeRed" GaugeBackground="Orange"  Foreground="Transparent" From="0" To="100" Value="{Binding MEMLoadAvr}"/>
+
+            </Grid>
+        </Grid>
+    </Border>
 </Page>
