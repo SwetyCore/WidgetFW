@@ -9,7 +9,7 @@ using WidgetBase;
 
 namespace WpfWidgetsFramework.VM
 {
-    internal class PluginManage:ObservableObject
+    public class PluginManage:ObservableObject
     {
 
         private List<IPlugin> plugins;

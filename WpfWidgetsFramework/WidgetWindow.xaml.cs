@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WidgetBase;
+using static WpfWidgetsFramework.VM.WidgetsManage;
 
 namespace WpfWidgetsFramework
 {
@@ -20,18 +21,19 @@ namespace WpfWidgetsFramework
     /// </summary>
     public partial class WidgetWindow : Window
     {
-        private Page CreateInstance(Type t)
-        {
-            return Activator.CreateInstance(t) as Page;
 
-        }
         IWidget widget;
-        public WidgetWindow(IWidget t)
+        WidgetStatue ws;
+        public WidgetWindow(WidgetStatue t)
         {
             InitializeComponent();
-            widget = t;
+            ws = t;
+            widget = ws.widget;
             frame.Content = widget;
             widget.WWindow = this;
+
+            Top = ws.position.Y;
+            Left = ws.position.X;
 
             Width = widget.Size.X;
             Height = widget.Size.Y;
@@ -39,6 +41,9 @@ namespace WpfWidgetsFramework
 
         private void WindowClose(object sender, RoutedEventArgs e)
         {
+            ws.enabled = false;
+            //App app = Application.Current as App;
+            //app.wmvm.Status.FirstOrDefault().enabled = false;
             Close();
         }
 
@@ -49,12 +54,17 @@ namespace WpfWidgetsFramework
 
         private void ShowSetting(object sender, RoutedEventArgs e)
         {
-
+            var mw=Application.Current.MainWindow;
+            if (!mw.IsLoaded) 
+            {
+                mw = new MainWindow();
+                mw.Show();
+            }
         }
 
         private void ExitApplication(object sender, RoutedEventArgs e)
         {
-            
+            Environment.Exit(0);
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -64,7 +74,7 @@ namespace WpfWidgetsFramework
 
         private void Window_LocationChanged(object sender, EventArgs e)
         {
-            
+            ws.position = new Point(Left, Top);
         }
     }
 }

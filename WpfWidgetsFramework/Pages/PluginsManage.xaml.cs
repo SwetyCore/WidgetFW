@@ -27,7 +27,7 @@ namespace WpfWidgetsFramework.Pages
         {
             InitializeComponent();
 
-            var mw = Application.Current.MainWindow as MainWindow;
+            var mw = Application.Current as App;
 
             vm.Plugins = (List<IPlugin>)mw.Plugins;
 

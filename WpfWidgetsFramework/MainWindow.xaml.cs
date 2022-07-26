@@ -23,12 +23,10 @@ namespace WpfWidgetsFramework
     /// </summary>
     public partial class MainWindow : Window
     {
-        public IEnumerable<IPlugin> Plugins { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
-            Plugins = new PluginLoader().Load();
         }
 
 

@@ -26,24 +26,11 @@ namespace WpfWidgetsFramework.Pages
         {
             InitializeComponent();
 
-            var mw = Application.Current.MainWindow as MainWindow;
+            var app = Application.Current as App;
 
-            vm.Status = new();
+            
 
-            foreach (var item in mw.Plugins)
-            {
-                foreach (var w in item.Widgets)
-                {
-                    vm.Status.Add(new VM.WidgetsManage.WidgetStatue()
-                    {
-                        widget = w,
-                        plugin = item,
-                        enabled = false
-                    });
-                }
-            }
-
-            DataContext = vm;
+            DataContext = app.wmvm;
         }
     }
 }
