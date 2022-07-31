@@ -9,26 +9,35 @@
       d:DataContext="{d:DesignInstance Type=vm:Clock}"
       d:DesignHeight="120" d:DesignWidth="120"
       Title="Clock">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/TestPlugin;component/Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid>
-        <Border Background="White" CornerRadius="10">
+        
+        <Border Background="White" CornerRadius="10" Effect="{StaticResource shadow}">
             <Border Padding="15">
 
                 <Border.Background>
                     <ImageBrush ImageSource="/TestPlugin;component/Resources/clock1.png"/>
                 </Border.Background>
                 <Grid>
+                    <TextBlock Foreground="Gray" HorizontalAlignment="Center" Margin="0 15" Text="AM"/>
 
-                    <Image Source="/TestPlugin;component/Resources/hour1.png">
+                    <Image Margin="10" Source="/TestPlugin;component/Resources/hour1.png">
                         <Image.RenderTransform>
-                            <RotateTransform Angle="{Binding Hour}" CenterX="43" CenterY="43"/>
+                            <RotateTransform Angle="{Binding Hour}" CenterX="33" CenterY="33"/>
                         </Image.RenderTransform>
                     </Image>
-                    <Image  Source="/TestPlugin;component/Resources/min1.png">
+                    <Image Margin="10" Source="/TestPlugin;component/Resources/min1.png">
                         <Image.RenderTransform>
-                            <RotateTransform Angle="{Binding Min}" CenterX="43" CenterY="43"/>
+                            <RotateTransform Angle="{Binding Min}" CenterX="33" CenterY="33"/>
                         </Image.RenderTransform>
                     </Image>
-                    <Image Source="/TestPlugin;component/Resources/secs11.png">
+                    <Image  Source="/TestPlugin;component/Resources/secs11.png">
                         <Image.RenderTransform>
                             <RotateTransform Angle="{Binding Sec}" CenterX="43" CenterY="43"/>
                         </Image.RenderTransform>

@@ -6,15 +6,15 @@ namespace TestPlugin
 {
     public class Class1 : IPlugin
     {
-        public string Name => "test";
+        public string Name => "测试小部件集合";
 
-        public string Description => "Desp";
+        public string Description => "测试描述";
 
         public Version Version =>new Version("2.1.1");
 
-        public string Author => "23";
+        public string Author => "SwetyCore";
 
-        public string Home => "home";
+        public string Home => "https://github.com";
 
         public string Guid =>"hesdwdwqwe";
 
@@ -24,7 +24,9 @@ namespace TestPlugin
         public IEnumerable<IWidget> Widgets => new List<IWidget>()
         {
             new TestPlugin.Widgets.ResMonitor(),
-            new TestPlugin.Widgets.Clock()
+            new TestPlugin.Widgets.Clock(),
+            new TestPlugin.Widgets.Weather(),
+            new TestPlugin.Widgets.BiliHelper(),
         };
 
         public int Execute()

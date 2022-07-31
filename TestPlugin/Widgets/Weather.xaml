@@ -1,0 +1,50 @@
+﻿<Page x:Class="TestPlugin.Widgets.Weather"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestPlugin.Widgets" xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+      xmlns:vm="clr-namespace:TestPlugin.VM" xmlns:convertor="clr-namespace:TestPlugin.Convertor"
+      mc:Ignorable="d" 
+      d:DataContext="{d:DesignInstance Type=vm:Weather}"
+      d:DesignHeight="125" d:DesignWidth="125"
+      Foreground="White"
+      Title="Weather">
+    <Page.Resources>
+
+        <convertor:WeatherIconConvertor x:Key="WeatherIconConvertor"/>
+        <convertor:Str2IntConvertor x:Key="Str2IntConvertor"/>
+    </Page.Resources>
+    <Grid>
+        <Border CornerRadius="10" Padding="10">
+            <Border.Background>
+                <ImageBrush ImageSource="https://assets.msn.cn/weathermapdata/1/static/background/v2.0/compactads3/Cloudy 2.png" Stretch="None"/>
+            </Border.Background>
+            <Canvas>
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock FontSize="34" Text="{Binding Current.responses[0].weather[0].current.temp,Converter={StaticResource Str2IntConvertor}}">
+                    
+                    </TextBlock>
+                    <TextBlock Margin="0 3 0 0" Foreground="LightGray" FontSize="20">°</TextBlock>
+                    
+                </StackPanel>
+                <StackPanel Canvas.Top="50">
+                    <TextBlock>
+                        <Run Text="{Binding Current.responses[0].weather[0].current.cap}"/> <LineBreak/>
+                        <!--<Run Text="{Binding Current.responses[0].weather[0].current.pvdrWindSpd}"/>-->
+                        <Run Text="{Binding Current.responses[0].weather[0].current.aqiSeverity}"/>
+                        
+                        <LineBreak/>
+                        <Run FontSize="10" Foreground="LightGray" Text="{Binding Current.responses[0].source.location.StateCode}"/> 
+
+
+                    </TextBlock>
+                </StackPanel>
+                <svgc:SvgViewbox Canvas.Right="0" Canvas.Top="4" Width="40"  IsHitTestVisible="False" 
+                                 Source="{Binding Current.responses[0].weather[0].current.pvdrIcon,Converter={StaticResource WeatherIconConvertor}}"/>
+            </Canvas>
+
+        </Border>
+    </Grid>
+</Page>

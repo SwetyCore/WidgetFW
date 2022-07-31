@@ -9,6 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       xmlns:vm="clr-namespace:WpfWidgetsFramework.VM"
       d:DataContext="{d:DesignInstance Type=vm:WidgetsManage}"
+      Unloaded="Page_Unloaded"
       Title="WidgetsManage">
 
     <Grid>

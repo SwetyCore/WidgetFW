@@ -9,6 +9,7 @@
         Style="{StaticResource UiWindow}"
         Background="{DynamicResource ApplicationBackgroundBrush}"
         xmlns:pg="clr-namespace:WpfWidgetsFramework.Pages"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>

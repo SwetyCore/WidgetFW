@@ -23,13 +23,26 @@ namespace WpfWidgetsFramework
     /// </summary>
     public partial class MainWindow : Window
     {
+        static bool first = true;
         public MainWindow()
         {
             InitializeComponent();
+            if (first)
+            {
 
+                var b = Pages.WidgetsManage.LoadCfg();
+                if (!b)
+                {
+                    this.WindowState=WindowState.Minimized;
+                }
+                first = false;
+
+            }
         }
 
-
-
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

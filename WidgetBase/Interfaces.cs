@@ -26,14 +26,16 @@ namespace WidgetBase
         public string WName { get; }
         public string UID { get; }
         public string Description { get; }
-        public Action OnEnabled { get;  }
-        public Action OnDisabled { get; }
         public Page Widget { get; }
 
         public Window WWindow { get; set; }
 
         public Object Config { get;set;}
         public Point Size { get; }
+
+
+        public Action OnEnabled { get; }
+        public Action OnDisabled { get; }
     }
     
 }

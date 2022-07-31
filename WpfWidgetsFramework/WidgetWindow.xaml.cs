@@ -71,6 +71,12 @@ namespace WpfWidgetsFramework
                 mw = new MainWindow();
                 mw.Show();
             }
+            else
+            {
+                mw.WindowState = WindowState.Normal;
+                mw.Topmost = true;
+                mw.Topmost = false;
+            }
         }
 
         private void ExitApplication(object sender, RoutedEventArgs e)

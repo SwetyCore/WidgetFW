@@ -57,7 +57,7 @@ namespace TestPlugin.Widgets
         #region 接口实现
         public string WName => "性能监视";
 
-        public string UID => "dwyfguiop2134e";
+        public string UID => "monitor";
 
         public string Description => "CPU，RAM占用查看";
 
@@ -76,11 +76,13 @@ namespace TestPlugin.Widgets
 
         public Action OnEnabled => async () =>
         {
-
             DataContext = vm;
+            await Task.Run(() =>
+            {
+                mycom.Open();
+                mycom.Accept(new UpDataIVisitor());
+            });
             timer.Start();
-            mycom.Open();
-            mycom.Accept(new UpDataIVisitor());
 
             timer.Tick += (object? sender, EventArgs e) =>
             {
