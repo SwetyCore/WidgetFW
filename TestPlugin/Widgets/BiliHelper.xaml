@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       xmlns:vm="clr-namespace:TestPlugin.VM" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       d:DataContext="{d:DesignInstance Type=vm:BiliHelper}"
-      d:DesignHeight="200" d:DesignWidth="300"
+      d:DesignHeight="247" d:DesignWidth="456"
       Title="BiliHelper">
 
     <Page.Resources>
@@ -21,47 +21,47 @@
     </Page.Resources>
     <Grid>
         <Border CornerRadius="10" Effect="{StaticResource shadow}" Background="White" Padding="0 5 0 0">
-            
+
             <StackPanel Orientation="Vertical">
-                    <Image Width="350"  Source="{Binding Card.data.space.s_img}"></Image>
-                    <StackPanel Orientation="Horizontal" Height="140" Width="350" >
-                        <Border Width="52" Height="52" CornerRadius="40" Margin="10"  VerticalAlignment="Top">
-                            <Border.Background>
-                                <ImageBrush ImageSource="{Binding Card.data.card.face}">
+                <Image Width="350"  Source="{Binding Card.data.space.s_img}"></Image>
+                <StackPanel Orientation="Horizontal" Height="140" Width="350" >
+                    <Border Width="52" Height="52" CornerRadius="40" Margin="10"  VerticalAlignment="Top">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding Card.data.card.face}">
 
-                                </ImageBrush>
-                            </Border.Background>
-                        </Border>
-                        <StackPanel Margin="10 15">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontWeight="Bold" FontSize="20" Text="{Binding Card.data.card.name}"></TextBlock>
-                                <StackPanel VerticalAlignment="Bottom" Margin="7" Orientation="Horizontal">
-                                    <TextBlock Text="LV."/>
-                                    <TextBlock Text="{Binding Card.data.card.level_info.current_level}"/>
-                                </StackPanel>
-                                <!--<svgc:SvgViewbox Margin="10 0 0 0" Height="16"  Source="../../Assets/Images/lv5.svg"></svgc:SvgViewbox>-->
-
-
+                            </ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <StackPanel Margin="10 15">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontWeight="Bold" FontSize="20" Text="{Binding Card.data.card.name}"></TextBlock>
+                            <StackPanel VerticalAlignment="Bottom" Margin="7" Orientation="Horizontal">
+                                <TextBlock Text="LV."/>
+                                <TextBlock Text="{Binding Card.data.card.level_info.current_level}"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+                            <!--<svgc:SvgViewbox Margin="10 0 0 0" Height="16"  Source="../../Assets/Images/lv5.svg"></svgc:SvgViewbox>-->
 
-                                <TextBlock Text="关注:"/>
-                                <TextBlock Margin="0 0 10 0" Text="{Binding Card.data.card.friend}"></TextBlock>
-                                <TextBlock Text="粉丝:"/>
-                                <TextBlock Margin="0 0 10 0" Text="{Binding Card.data.card.fans}"></TextBlock>
-                                <TextBlock Text="获赞:"/>
-                                <TextBlock Margin="0 0 10 0" Text="{Binding Card.data.like_num}"></TextBlock>
-                            </StackPanel>
-                            <TextBlock TextWrapping="Wrap" Width="280" Foreground="Gray"
-                                                                           Margin="0 20 0 0" Text="{Binding Card.data.card.sign}">
-                            </TextBlock>
+
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
+
+                            <TextBlock Text="关注:"/>
+                            <TextBlock Margin="0 0 10 0" Text="{Binding Card.data.card.friend}"></TextBlock>
+                            <TextBlock Text="粉丝:"/>
+                            <TextBlock Margin="0 0 10 0" Text="{Binding Card.data.card.fans}"></TextBlock>
+                            <TextBlock Text="获赞:"/>
+                            <TextBlock Margin="0 0 10 0" Text="{Binding Card.data.like_num}"></TextBlock>
+                        </StackPanel>
+                        <TextBlock TextWrapping="Wrap" Width="280" Foreground="Gray"
+                                                                           Margin="0 20 0 0" Text="{Binding Card.data.card.sign}">
+                        </TextBlock>
                     </StackPanel>
                 </StackPanel>
+            </StackPanel>
         </Border>
-        <Border  Width="36" Height="32" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20 10">
+        <Border  Width="36" Height="32" HorizontalAlignment="Right" CornerRadius="5" Background="#40000000" VerticalAlignment="Top" Margin="20 10">
             <ui:Button
-                   Icon="Settings24" Background="#40000000" Appearance="Secondary"/>
+                   Icon="Settings24"  Click="Button_Click" Appearance="Secondary"/>
         </Border>
 
     </Grid>
