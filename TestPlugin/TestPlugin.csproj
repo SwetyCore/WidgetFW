@@ -12,6 +12,7 @@
     <None Remove="Resources\clock1.png" />
     <None Remove="Resources\hour1.png" />
     <None Remove="Resources\hour12.png" />
+    <None Remove="Resources\kleebg.png" />
     <None Remove="Resources\min1.png" />
     <None Remove="Resources\min12.png" />
     <None Remove="Resources\secs11.png" />
@@ -35,6 +36,7 @@
   <ItemGroup>
     <Resource Include="Resources\clock1.png" />
     <Resource Include="Resources\hour1.png" />
+    <Resource Include="Resources\kleebg.png" />
     <Resource Include="Resources\min1.png" />
     <Resource Include="Resources\secs11.png" />
   </ItemGroup>

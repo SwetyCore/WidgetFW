@@ -27,6 +27,7 @@ namespace TestPlugin
             new TestPlugin.Widgets.Clock(),
             new TestPlugin.Widgets.Weather(),
             new TestPlugin.Widgets.BiliHelper(),
+            new TestPlugin.Widgets.GenshinHelper(),
         };
 
         public int Execute()
