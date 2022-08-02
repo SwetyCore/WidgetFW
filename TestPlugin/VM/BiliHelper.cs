@@ -46,6 +46,13 @@ namespace TestPlugin.VM
         }
 
 
+        private bool _loading;  
+
+        public bool Loading
+        {
+            get { return _loading; }
+            set { SetProperty(ref _loading, value); }
+        }
 
 
 

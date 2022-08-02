@@ -8,9 +8,10 @@
       xmlns:vm="clr-namespace:TestPlugin.VM" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       d:DataContext="{d:DesignInstance Type=vm:BiliHelper}"
       d:DesignHeight="247" d:DesignWidth="456"
+      xmlns:convertor="clr-namespace:TestPlugin.Convertor"
       Title="BiliHelper">
-
     <Page.Resources>
+
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/TestPlugin;component/Dictionary1.xaml"/>
@@ -20,9 +21,14 @@
         </ResourceDictionary>
     </Page.Resources>
     <Grid>
-        <Border CornerRadius="10" Effect="{StaticResource shadow}" Background="White" Padding="0 5 0 0">
+        <Grid.Resources>
+            <convertor:Bool2VisibilityConvertor  x:Key="Bool2VisibilityConvertor"/>
 
-            <StackPanel Orientation="Vertical">
+        </Grid.Resources>
+        <Border
+            CornerRadius="10" Effect="{StaticResource shadow}" Background="White" Padding="0 5 0 0">
+
+            <StackPanel  Visibility="{Binding Loading,Converter={StaticResource Bool2VisibilityConvertor},ConverterParameter=1}"  Orientation="Vertical">
                 <Image Width="350"  Source="{Binding Card.data.space.s_img}"></Image>
                 <StackPanel Orientation="Horizontal" Height="140" Width="350" >
                     <Border Width="52" Height="52" CornerRadius="40" Margin="10"  VerticalAlignment="Top">
@@ -62,6 +68,19 @@
         <Border  Width="36" Height="32" HorizontalAlignment="Right" CornerRadius="5" Background="#40000000" VerticalAlignment="Top" Margin="20 10">
             <ui:Button
                    Icon="Settings24"  Click="Button_Click" Appearance="Secondary"/>
+        </Border>
+
+        <Border CornerRadius="10" Visibility="{Binding Loading,Converter={StaticResource Bool2VisibilityConvertor}}" >
+            <Border.Background>
+                <ImageBrush ImageSource="https://i0.hdslb.com/bfs/space/cb1c3ef50e22b6096fde67febe863494caefebad.png" Stretch="UniformToFill"/>
+            </Border.Background>
+            <Border Background="#90FFFFFF" CornerRadius="10">
+
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock HorizontalAlignment="Center"  FontSize="24" Text="需要登录来启用卡片"/>
+                    <ui:Button HorizontalAlignment="Center" Margin="0 20 0 0" Padding="20 10" Appearance="Info" Content="登录" Click="Button_Click"/>
+                </StackPanel>
+            </Border>
         </Border>
 
     </Grid>

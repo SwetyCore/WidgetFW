@@ -57,6 +57,7 @@ namespace TestPlugin.Widgets
 
             DataContext = vm;
             timer.Start();
+            vm.Loading = true;
 
             DataUpdate();
             timer.Tick += (object? sender, EventArgs e) =>
@@ -89,6 +90,7 @@ namespace TestPlugin.Widgets
             if (mycookie == "" | mycookie == null)
             {
                 MessageBox.Show("未设置cookie!", "提示");
+                vm.Loading = true;
 
                 return;
             }
@@ -101,6 +103,7 @@ namespace TestPlugin.Widgets
             if (roles.Count < 1)
             {
                 MessageBox.Show("无效的Cookie或者无网络!", "提示");
+                vm.Loading = true;
                 return;
             }
             foreach (UserGameRole role in roles)
@@ -108,6 +111,7 @@ namespace TestPlugin.Widgets
                 DailyNote note = await new DailyNoteProvider(cookie.CookieValue).GetDailyNoteAsync(role.Region, role.GameUid);
                 //roleAndNotes.Add(new RoleAndNote { Role = role, Note = note });
                 this.vm.RoleAndNote = new RoleAndNote { Role = role, Note = note };
+                vm.Loading = false;
             }
 
 

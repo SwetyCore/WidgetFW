@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TestPlugin.Widgets"
       mc:Ignorable="d" 
-      xmlns:vm="clr-namespace:TestPlugin.VM" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:vm="clr-namespace:TestPlugin.VM" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" xmlns:convertor="clr-namespace:TestPlugin.Convertor"
       d:DataContext="{d:DesignInstance Type=vm:GenshinHelper}"
       d:DesignHeight="150" d:DesignWidth="300"
       Title="GenshinHelper">
@@ -20,11 +20,17 @@
     </Page.Resources>
 
     <Grid>
-        <Border CornerRadius="10" Effect="{StaticResource shadow}"  Padding="0 5 0 0">
+        <Grid.Resources>
+            <convertor:Bool2VisibilityConvertor  x:Key="Bool2VisibilityConvertor"/>
+
+        </Grid.Resources>
+        <Border 
+                CornerRadius="10" Effect="{StaticResource shadow}"  Padding="0 5 0 0">
             <Border.Background>
                 <ImageBrush ImageSource="/TestPlugin;component/Resources/kleebg.png"/>
             </Border.Background>
-            <Grid>
+            <Grid 
+            Visibility="{Binding Loading,Converter={StaticResource Bool2VisibilityConvertor},ConverterParameter=1}" >
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="150" Margin="15">
                     <TextBlock Foreground="#ca5f47" FontSize="24" HorizontalAlignment="Center">
                         <Run Text="{Binding RoleAndNote.Role.Nickname}"/>
@@ -51,5 +57,13 @@
             <ui:Button
                    Icon="Settings24" IconForeground="#ca5f47" Click="Button_Click" Appearance="Secondary"/>
         </Border>
+
+        <Border CornerRadius="10" Visibility="{Binding Loading,Converter={StaticResource Bool2VisibilityConvertor}}" Background="#90FFFFFF">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center" Foreground="#ca5f47"  FontSize="24" Text="需要登录来启用卡片"/>
+                <ui:Button HorizontalAlignment="Center" Margin="0 20 0 0" Padding="20 10" Appearance="Info" Content="登录" Click="Button_Click"/>
+            </StackPanel>
+        </Border>
+
     </Grid>
 </Page>

@@ -57,6 +57,7 @@ namespace TestPlugin.Widgets
         {
 
             DataContext = vm;
+            vm.Loading = true;
             timer.Start();
 
             DataUpdate();
@@ -96,7 +97,7 @@ namespace TestPlugin.Widgets
                     string api = "http://api.bilibili.com/x/web-interface/card";
                     string url = api.SetQueryParams(new { mid = GetMidFromCookie(Cookie), photo = "true" });
                     vm.Card = await url.GetJsonAsync<web_interface_card.Root>();
-
+                    vm.Loading = false;
                 }
                 catch (Exception ex)
                 {
@@ -106,6 +107,7 @@ namespace TestPlugin.Widgets
             else if (tip)
             {
                 MessageBox.Show("哔哩哔哩:无效的Cookie!");
+                vm.Loading = true;
             }
         }
 

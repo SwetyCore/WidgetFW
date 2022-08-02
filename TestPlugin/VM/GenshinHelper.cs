@@ -15,5 +15,15 @@ namespace TestPlugin.VM
             get { return _roleAndNote; }
             set { SetProperty(ref _roleAndNote , value); }
         }
+
+        private bool _loading;
+
+        public bool Loading
+        {
+            get { return _loading; }
+            set { SetProperty(ref _loading, value); }
+        }
+
+
     }
 }

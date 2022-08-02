@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 
 namespace TestPlugin.Convertor
@@ -178,6 +179,43 @@ namespace TestPlugin.Convertor
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return (int)float.Parse(value.ToString());
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    internal class Bool2VisibilityConvertor : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string p = "";
+            try
+            {
+                p = parameter as string;
+
+            }
+            catch (Exception e)
+            {
+                p = null;
+            }
+            
+            var v=(bool)value;
+            if (!string.IsNullOrEmpty(p))
+            {
+                v = !v;
+            }
+            if (v)
+            {
+                return Visibility.Visible;
+            }
+            else
+            {
+                return Visibility.Collapsed;
+
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
