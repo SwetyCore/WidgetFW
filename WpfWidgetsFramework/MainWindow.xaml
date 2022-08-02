@@ -70,7 +70,7 @@
                     <ui:NavigationItem
                     Content="关于"                    
                     Icon="Info24"
-                    PageType="{x:Type pg:WidgetsManage}"
+                    PageType="{x:Type pg:AboutPage}"
                     Tag="关于" Cursor="Hand" />
                 </ui:NavigationStore.Footer>
             </ui:NavigationStore>

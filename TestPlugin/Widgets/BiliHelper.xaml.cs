@@ -60,7 +60,7 @@ namespace TestPlugin.Widgets
             vm.Loading = true;
             timer.Start();
 
-            DataUpdate();
+            DataUpdate(false);
             timer.Tick += (object? sender, EventArgs e) =>
             {
                 DataUpdate();

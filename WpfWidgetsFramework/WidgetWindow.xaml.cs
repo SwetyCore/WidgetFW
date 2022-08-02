@@ -81,6 +81,7 @@ namespace WpfWidgetsFramework
 
         private void ExitApplication(object sender, RoutedEventArgs e)
         {
+            Pages.WidgetsManage.SaveCfg();
             Environment.Exit(0);
         }
 
