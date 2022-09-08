@@ -1,26 +1,35 @@
-﻿<Window x:Class="WpfWidgetsFramework.WidgetWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfWidgetsFramework"
-        mc:Ignorable="d"
-        WindowStyle="None"
-        AllowsTransparency="True"
-        Background="Transparent"
-        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        LocationChanged="Window_LocationChanged"
-        Title="WidgetWindow" Height="450" Width="800">
+﻿<Window
+    x:Class="WpfWidgetsFramework.WidgetWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfWidgetsFramework"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="WidgetWindow"
+    Width="800"
+    Height="450"
+    Background="Transparent"
+    LocationChanged="Window_LocationChanged"
+    MouseLeftButtonDown="Window_MouseLeftButtonDown"
+    ResizeMode="NoResize"
+    UseLayoutRounding="True"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" GlassFrameThickness="-1" />
+    </WindowChrome.WindowChrome>
     <Window.ContextMenu>
-        <ContextMenu>
-            <ui:MenuItem SymbolIcon="ArrowExit20" Click="WindowClose" Header="关闭插件"/>
-            <ui:MenuItem x:Name="topmostMI" SymbolIcon="Pin24" Click="WindowTopMost" Header="窗口置顶"/>
-            <ui:MenuItem SymbolIcon="Window24" Click="ShowSetting" Header="打开设置"/>
-            <ui:MenuItem SymbolIcon="Dismiss24" Click="ExitApplication" Header="退出程序"/>
+        <ContextMenu Width="180">
+            <MenuItem Click="WindowClose" Header="关闭插件" />
+            <MenuItem
+                x:Name="topmostMI"
+                Click="WindowTopMost"
+                Header="窗口置顶" />
+            <MenuItem Click="ShowSetting" Header="打开设置" />
+            <MenuItem Click="ExitApplication" Header="退出程序" />
         </ContextMenu>
     </Window.ContextMenu>
     <Grid Margin="5">
-        <Frame x:Name="frame"/>
+        <Frame x:Name="frame" BorderThickness="0" />
     </Grid>
 </Window>

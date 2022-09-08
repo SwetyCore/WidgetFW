@@ -2,19 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using WidgetBase;
 
 namespace WpfWidgetsFramework.Pages
 {
@@ -23,7 +12,7 @@ namespace WpfWidgetsFramework.Pages
     /// </summary>
     public partial class WidgetsManage : Page
     {
-        const string SETTING_FILE= "setting.json";
+        const string SETTING_FILE = "setting.json";
         public WidgetsManage()
         {
             InitializeComponent();
@@ -67,7 +56,7 @@ namespace WpfWidgetsFramework.Pages
                     }
                 }
             }
-            if (count==0)
+            if (count == 0)
             {
                 return true;
             }
@@ -90,8 +79,8 @@ namespace WpfWidgetsFramework.Pages
             {
                 cfg.Add(item.widget.UID, new WidgetStatueCfg()
                 {
-                    position=item.position,
-                    enabled=item.enabled,
+                    position = item.position,
+                    enabled = item.enabled,
 
                 });
             }

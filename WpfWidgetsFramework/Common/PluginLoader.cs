@@ -4,9 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using WidgetBase;
 
 namespace WpfWidgetsFramework.Common
@@ -54,10 +51,11 @@ namespace WpfWidgetsFramework.Common
 
             string[] plugin_folders = Directory.GetDirectories(PLUGIN_FOLDER);
 
+
             IEnumerable<IPlugin> Plugins = plugin_folders.SelectMany(pluginPath =>
             {
-                var entery= File.ReadAllText(Path.Combine(pluginPath, "index.txt"));
-                string plugin_main = Path.Combine(pluginPath,entery );
+                var entery = File.ReadAllText(Path.Combine(pluginPath, "index.txt"));
+                string plugin_main = Path.Combine(pluginPath, entery);
                 //plugin_main = @"C:\Users\SwetyCore\source\repos\WpfWidgetsFramework\WpfWidgetsFramework\bin\Debug\net6.0-windows\Plugins\TestPlugin\TestPlugin.dll";
                 Assembly pluginAssembly = LoadPlugin(plugin_main);
                 return CreatePluginInstances(pluginAssembly);

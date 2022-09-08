@@ -15,7 +15,7 @@ namespace WidgetBase
 
         public string Author { get; }
 
-        public string Home { get;  }
+        public string Home { get; }
         public IEnumerable<IWidget> Widgets { get; }
 
     }
@@ -30,12 +30,12 @@ namespace WidgetBase
 
         public Window WWindow { get; set; }
 
-        public Object Config { get;set;}
+        public Object Config { get; set; }
         public Point Size { get; }
 
 
         public Action OnEnabled { get; }
         public Action OnDisabled { get; }
     }
-    
+
 }

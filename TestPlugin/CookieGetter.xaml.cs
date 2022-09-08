@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.Web.WebView2.Wpf;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Microsoft.Web.WebView2.Wpf;
 
 namespace TestPlugin
 {
@@ -22,7 +12,6 @@ namespace TestPlugin
     {
         public CookieGetter(string url)
         {
-            new WebView2().Dispose();
             InitializeComponent();
             wv2.Source = new Uri(url);
         }
@@ -36,6 +25,11 @@ namespace TestPlugin
         {
             Cookie = await wv2.ExecuteScriptAsync("document.cookie");
             Close();
+        }
+
+        private void wv2_Initialized(object sender, EventArgs e)
+        {
+
         }
     }
 }

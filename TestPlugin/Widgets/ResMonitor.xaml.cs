@@ -1,22 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using LibreHardwareMonitor.Hardware;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using WidgetBase;
-using LibreHardwareMonitor.Hardware;
 using System.Windows.Threading;
-using LiveCharts.Wpf;
+using WidgetBase;
 
 namespace TestPlugin.Widgets
 {
@@ -50,7 +38,6 @@ namespace TestPlugin.Widgets
 
         public ResMonitor()
         {
-            new Gauge();
             InitializeComponent();
 
         }
@@ -68,7 +55,7 @@ namespace TestPlugin.Widgets
         public object Config { get; set; }
 
         //30*4-10
-        public Point Size => new( 200,100);
+        public Point Size => new(200, 100);
 
         public Window WWindow { get; set; } = null;
 
@@ -125,14 +112,14 @@ namespace TestPlugin.Widgets
                     }
 
                 }
-                if (item.HardwareType==HardwareType.Memory)
+                if (item.HardwareType == HardwareType.Memory)
                 {
                     item.Update();
                     foreach (var item2 in item.Sensors)
                     {
-                        if (item2.SensorType==SensorType.Load)
+                        if (item2.SensorType == SensorType.Load)
                         {
-                            if (item2.Name== "Memory")
+                            if (item2.Name == "Memory")
                             {
                                 vm.MEMLoadAvr = Math.Round((double)item2.Value!);
                             }

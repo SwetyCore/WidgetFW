@@ -1,13 +1,9 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestPlugin.VM
 {
-    internal class Weather: ObservableObject
+    internal class Weather : ObservableObject
     {
         public class WeatherCurrent
         {

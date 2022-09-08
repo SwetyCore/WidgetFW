@@ -1,5 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup Label="Globals">
+    <WebView2LoaderPreference>Static</WebView2LoaderPreference>
+  </PropertyGroup>
+
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
@@ -7,22 +11,18 @@
 	<EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <None Remove="Resources\clock0.png" />
-    <None Remove="Resources\clock1.png" />
-    <None Remove="Resources\hour1.png" />
-    <None Remove="Resources\hour12.png" />
-    <None Remove="Resources\kleebg.png" />
-    <None Remove="Resources\min1.png" />
-    <None Remove="Resources\min12.png" />
-    <None Remove="Resources\secs11.png" />
+    <Content Include="index.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="3.2.4" />
     <PackageReference Include="LibreHardwareMonitorLib" Version="0.9.0" />
-    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1264.42" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1343.22" />
     <PackageReference Include="SharpVectors" Version="1.8.0" />
   </ItemGroup>
 
@@ -39,6 +39,8 @@
     <Resource Include="Resources\kleebg.png" />
     <Resource Include="Resources\min1.png" />
     <Resource Include="Resources\secs11.png" />
+
+	<Resource Include="Resources\schedule-logo.png"/>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

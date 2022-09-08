@@ -1,20 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using WidgetBase;
-using WpfWidgetsFramework.Common;
 
 namespace WpfWidgetsFramework
 {
@@ -33,7 +19,7 @@ namespace WpfWidgetsFramework
                 var b = Pages.WidgetsManage.LoadCfg();
                 if (!b)
                 {
-                    this.WindowState=WindowState.Minimized;
+                    this.WindowState = WindowState.Minimized;
                 }
                 first = false;
 
@@ -42,7 +28,42 @@ namespace WpfWidgetsFramework
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            RootFrame.Navigate(new Pages.WidgetsManage());
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void ListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            var i = (sender as ListBox).SelectedIndex;
+            if (i==0)
+            {
+                RootFrame.Navigate(new Pages.WidgetsManage());
+            }
+            if (i == 1)
+            {
+                RootFrame.Navigate(new Pages.PluginsManage());
+
+            }
+            if (i == 2)
+            {
+                RootFrame.Navigate(new Pages.AboutPage());
+
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState=WindowState.Minimized;
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

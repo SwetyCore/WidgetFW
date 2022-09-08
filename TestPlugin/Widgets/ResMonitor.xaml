@@ -1,61 +1,59 @@
-﻿<Page x:Class="TestPlugin.Widgets.ResMonitor"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TestPlugin.Widgets"
-      xmlns:vm="clr-namespace:TestPlugin.VM"
-      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-      mc:Ignorable="d" 
-      d:DesignHeight="100" d:DesignWidth="200"
-      d:DataContext="{d:DesignInstance Type=vm:Monitor}"
-      Title="Page1">
+﻿<Page
+    x:Class="TestPlugin.Widgets.ResMonitor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:TestPlugin.Widgets"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:TestPlugin.VM"
+    Title="Page1"
+    d:DataContext="{d:DesignInstance Type=vm:Monitor}"
+    d:DesignHeight="100"
+    d:DesignWidth="200"
+    mc:Ignorable="d">
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/TestPlugin;component/Dictionary1.xaml"/>
+                <ResourceDictionary Source="/TestPlugin;component/Dictionary1.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    <Border CornerRadius="10" Background="White" Effect="{DynamicResource shadow}">
+    <Border
+        Padding="10"
+        Background="White"
+        CornerRadius="10"
+        Effect="{DynamicResource shadow}">
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1" Margin="0 10 10 10">
-                <Border CornerRadius="10" Padding="0 12 5 12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="28"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Foreground="gray" Text="CPU"/>
-                        <TextBlock Foreground="gray" Grid.Row="1" Text="内存"/>
+            <TextBlock Text="CPU" />
+            <TextBlock Grid.Column="1" Text="RAM" />
+            <Grid Grid.Row="1" Grid.Column="1">
 
-                        <TextBlock Grid.Column="1" Foreground="Gray" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                            <Run Foreground="#3399ff" FontSize="30"  Text="{Binding CPULoadAvr}"/>
-                            <Run Text="%"/>
-                        </TextBlock>
-                        <TextBlock Foreground="Gray" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right">
-
-                            <Run Foreground="#ffa366" FontSize="30" Text="{Binding MEMLoadAvr}"/>
-                            <Run Text="%"/>
-                        </TextBlock>
-                    </Grid>
-                </Border>
-
+                <hc:CircleProgressBar
+                    Width="72"
+                    Height="72"
+                    ArcThickness="10"
+                    FontWeight="Bold"
+                    Value="{Binding MEMLoadAvr}" />
             </Grid>
-            <Grid Margin="10">
-                <lvc:Gauge Margin="0" Uses360Mode="True" Foreground="Transparent" From="0" To="100" Value="{Binding CPULoadAvr}"/>
-                <lvc:Gauge Margin="14" Uses360Mode="True" GaugeActiveFill="Orange" GaugeBackground="#ffeee5"  Foreground="Transparent" From="0" To="100" Value="{Binding MEMLoadAvr}"/>
 
+            <Grid Grid.Row="1" Grid.Column="0">
+                <hc:CircleProgressBar
+                    Width="72"
+                    Height="72"
+                    ArcThickness="10"
+                    FontWeight="Bold"
+                    Value="{Binding CPULoadAvr}" />
             </Grid>
         </Grid>
     </Border>

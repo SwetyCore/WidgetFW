@@ -3,17 +3,8 @@ using Flurl.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using WidgetBase;
 using static TestPlugin.VM.BiliHelper;
@@ -23,7 +14,7 @@ namespace TestPlugin.Widgets
     /// <summary>
     /// BiliHelper.xaml 的交互逻辑
     /// </summary>
-    public partial class BiliHelper : Page,IWidget
+    public partial class BiliHelper : Page, IWidget
     {
         DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 30, 0) };
         VM.BiliHelper vm = new VM.BiliHelper();
@@ -47,7 +38,7 @@ namespace TestPlugin.Widgets
         public object Config { get; set; }
 
         //30*4-10
-        public Point Size => new(300, 200);
+        public Point Size => new(200, 100);
 
         public Window WWindow { get; set; } = null;
 
@@ -115,7 +106,7 @@ namespace TestPlugin.Widgets
         {
             var dl = new CookieGetter("https://passport.bilibili.com/login");
             dl.ShowDialog();
-            Cookie=dl.Cookie;
+            Cookie = dl.Cookie;
             DataUpdate(true);
         }
     }

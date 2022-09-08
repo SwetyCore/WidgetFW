@@ -1,6 +1,4 @@
-﻿using DGP.Genshin.GamebarWidget.Model;
-using System.Collections.Generic;
-//using Windows.Storage;
+﻿//using Windows.Storage;
 
 namespace DGP.Genshin.GamebarWidget.Helper
 {

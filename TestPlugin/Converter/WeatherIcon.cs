@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
@@ -201,8 +199,8 @@ namespace TestPlugin.Convertor
             {
                 p = null;
             }
-            
-            var v=(bool)value;
+
+            var v = (bool)value;
             if (!string.IsNullOrEmpty(p))
             {
                 v = !v;

@@ -1,24 +1,17 @@
-﻿using Flurl;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Newtonsoft.Json;
-using System;
+﻿
+using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Flurl.Http;
 
 namespace TestPlugin.VM
 {
-    internal class BiliHelper:ObservableObject
+    internal class BiliHelper : ObservableObject
     {
         private space_acc_info.Root _Acc_Info;
 
         public space_acc_info.Root Acc_Info
         {
             get { return _Acc_Info; }
-            set { SetProperty(ref _Acc_Info , value);}
+            set { SetProperty(ref _Acc_Info, value); }
         }
 
         private space_myinfo.Root _space_Myinfo;
@@ -26,7 +19,7 @@ namespace TestPlugin.VM
         public space_myinfo.Root Space_Myinfo
         {
             get { return _space_Myinfo; }
-            set { SetProperty(ref _space_Myinfo , value);  }
+            set { SetProperty(ref _space_Myinfo, value); }
         }
 
         private web_interface_card.Root _card;
@@ -34,7 +27,7 @@ namespace TestPlugin.VM
         public web_interface_card.Root Card
         {
             get { return _card; }
-            set { SetProperty(ref _card , value); }
+            set { SetProperty(ref _card, value); }
         }
 
         private string _cookie;
@@ -46,7 +39,7 @@ namespace TestPlugin.VM
         }
 
 
-        private bool _loading;  
+        private bool _loading;
 
         public bool Loading
         {

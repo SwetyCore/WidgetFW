@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WidgetBase;
 using static WpfWidgetsFramework.VM.WidgetsManage;
 
@@ -35,8 +25,8 @@ namespace WpfWidgetsFramework
             Top = ws.position.Y;
             Left = ws.position.X;
 
-            Width = widget.Size.X*1.25;
-            Height = widget.Size.Y*1.25;
+            Width = widget.Size.X * 1.25;
+            Height = widget.Size.Y * 1.25;
         }
 
         private void WindowClose(object sender, RoutedEventArgs e)
@@ -65,8 +55,8 @@ namespace WpfWidgetsFramework
 
         private void ShowSetting(object sender, RoutedEventArgs e)
         {
-            var mw=Application.Current.MainWindow;
-            if (!mw.IsLoaded) 
+            var mw = Application.Current.MainWindow;
+            if (!mw.IsLoaded)
             {
                 mw = new MainWindow();
                 mw.Show();

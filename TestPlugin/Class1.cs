@@ -10,13 +10,13 @@ namespace TestPlugin
 
         public string Description => "²âÊÔÃèÊö";
 
-        public Version Version =>new Version("2.1.1");
+        public Version Version => new Version("2.1.1");
 
         public string Author => "SwetyCore";
 
         public string Home => "https://github.com";
 
-        public string Guid =>"hesdwdwqwe";
+        public string Guid => "hesdwdwqwe";
 
         public bool Enabled { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public object Config { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -28,6 +28,7 @@ namespace TestPlugin
             new TestPlugin.Widgets.Weather(),
             new TestPlugin.Widgets.BiliHelper(),
             new TestPlugin.Widgets.GenshinHelper(),
+            new TestPlugin.Widgets.AISchedule(),
         };
 
         public int Execute()
