@@ -1,5 +1,6 @@
 ﻿using HandyControl.Controls;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
@@ -22,6 +23,10 @@ namespace WpfWidgetsFramework
         {
 
             Application.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
+            if (!Directory.Exists("Plugins"))
+            {
+                Directory.CreateDirectory("Plugins");
+            }
             try
             {
                 Plugins = new PluginLoader().Load();
@@ -56,7 +61,7 @@ namespace WpfWidgetsFramework
 
             File.WriteAllText("err.log", JsonConvert.SerializeObject(e.Exception));
 
-            e.Handled = true;//使用这一行代码告诉运行时，该异常被处理了，不再作为UnhandledException抛出了。
+            Environment.Exit(-1);
         }
     }
 }

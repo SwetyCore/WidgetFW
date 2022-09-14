@@ -9,12 +9,16 @@
     xmlns:vm="clr-namespace:TestPlugin.VM"
     Title="Page1"
     d:DataContext="{d:DesignInstance Type=vm:Monitor}"
-    d:DesignHeight="100"
-    d:DesignWidth="200"
+    d:DesignHeight="120"
+    d:DesignWidth="240"
     mc:Ignorable="d">
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+
+
                 <ResourceDictionary Source="/TestPlugin;component/Dictionary1.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -26,35 +30,68 @@
         Effect="{DynamicResource shadow}">
 
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.ColumnSpan="2">
+                <Run FontSize="16" Text="资源监视" />
+                <LineBreak />
+                <Run
+                    FontSize="10"
+                    Foreground="{DynamicResource SecondaryTextBrush}"
+                    Text="Resource monitor" />
+            </TextBlock>
 
-            <TextBlock Text="CPU" />
-            <TextBlock Grid.Column="1" Text="RAM" />
-            <Grid Grid.Row="1" Grid.Column="1">
 
-                <hc:CircleProgressBar
-                    Width="72"
-                    Height="72"
-                    ArcThickness="10"
-                    FontWeight="Bold"
-                    Value="{Binding MEMLoadAvr}" />
-            </Grid>
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0">
+                <Grid Margin="0,6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="12" Text="CPU" />
+                    <ProgressBar
+                        Grid.Column="1"
+                        Height="12"
+                        FontSize="10"
+                        Value="{Binding CPULoadAvr}" />
+                </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="0">
-                <hc:CircleProgressBar
-                    Width="72"
-                    Height="72"
-                    ArcThickness="10"
-                    FontWeight="Bold"
-                    Value="{Binding CPULoadAvr}" />
-            </Grid>
+                <Grid Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="12" Text="RAM" />
+                    <ProgressBar
+                        Grid.Column="1"
+                        Height="12"
+                        FontSize="10"
+                        Value="{Binding MEMLoadAvr}" />
+                </Grid>
+            </StackPanel>
+
+            <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,-4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Content="打开任务管理器"
+                Cursor="Hand"
+                Click="Button_Click"
+                FontSize="10"
+                Foreground="{DynamicResource PrimaryBrush}"
+                SnapsToDevicePixels="True"
+                Style="{DynamicResource ButtonDashed.Small}" />
         </Grid>
     </Border>
 </Page>

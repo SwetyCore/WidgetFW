@@ -72,6 +72,9 @@ namespace TestPlugin.VM
                 string table = await File.ReadAllTextAsync("./Config/table.json");
                 TableRoot tr = JsonConvert.DeserializeObject<TableRoot>(table);
                 setting = tr.data.setting;
+
+                Widgets.AISchedule.sections = JsonConvert.DeserializeObject<List<Widgets.AISchedule.sectionTime>>(setting.sectionTimes);
+                
                 var week = Update();
 
                 CI = tr.data.courses.Where(x => IsIn(x.weeks.Split(','), week) && x.day == Week2Int(targetTime.DayOfWeek)).ToList();
@@ -79,14 +82,15 @@ namespace TestPlugin.VM
                 ErrMsg = "";
                 ErrVi = Visibility.Collapsed;
 
+
             }
             catch (Exception ex)
             {
                 
                 ErrMsg = ex.Message;
-                ErrVi = Visibility.Hidden;
 
 
+                ErrVi = Visibility.Visible;
 
             }
 

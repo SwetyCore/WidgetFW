@@ -29,7 +29,7 @@ namespace TestPlugin.Widgets
 
         public string UID => "genshinhelper";
 
-        public string Description => "显示树脂和委托的小工具";
+        public string Description => "[已失效]显示树脂和委托的小工具";
 
 
 

@@ -1,5 +1,6 @@
 ﻿using LibreHardwareMonitor.Hardware;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -130,6 +131,15 @@ namespace TestPlugin.Widgets
             }
 
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            var process1 = new Process();
+            process1.StartInfo.FileName = @"C:\WINDOWS\system32\taskmgr.exe";
+            process1.StartInfo.UseShellExecute = true;
+            process1.Start();
         }
     }
 }

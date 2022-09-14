@@ -13,6 +13,10 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
         <ListView ItemsSource="{Binding Plugins}">
             <ListView.View>
                 <GridView>
@@ -22,6 +26,17 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <StackPanel
+            Grid.Row="1"
+            Margin="8"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button
+                Command="{Binding OpenFolderCommand}"
+                Content="打开插件文件夹"
+                Style="{DynamicResource ButtonPrimary}" />
+        </StackPanel>
 
     </Grid>
 </Page>

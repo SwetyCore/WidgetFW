@@ -7,72 +7,115 @@
     xmlns:local="clr-namespace:WpfWidgetsFramework"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pg="clr-namespace:WpfWidgetsFramework.Pages"
-    Title="MainWindow"
+    Title="设置"
     Width="800"
     Height="450"
-    Background="Transparent"
-    Loaded="Window_Loaded"
-    ResizeMode="CanMinimize"
-    WindowStyle="None"
-    mc:Ignorable="d">
-    <WindowChrome.WindowChrome>
+    Loaded="Window_Loaded">
+    <!--<WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" GlassFrameThickness="-1" />
-    </WindowChrome.WindowChrome>
-    <Border Background="{DynamicResource BackgroundBrush}" CornerRadius="8">
+    </WindowChrome.WindowChrome>-->
+    <!--<hc:Card>-->
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="36" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal">
+                <Border
+                    Width="32"
+                    Height="32"
+                    Margin="4,0"
+                    CornerRadius="16" />
                 <TextBlock
                     Margin="8"
                     VerticalAlignment="Center"
                     FontSize="16"
                     Text="设置" />
-                <Border CornerRadius="8">
-                    <Border.Background>
-                        <SolidColorBrush Color="#01000000" />
-                    </Border.Background>
-                </Border>
-                <hc:ButtonGroup
-                    Margin="4,2"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    <Button
-                        Width="32"
-                        Content="&#xe921;"
-                        FontFamily="Segoe Fluent Icons"
-                        Click="Button_Click"
-                        Style="{DynamicResource ButtonGroupItemHorizontalFirst}" />
-                    <Button
-                        Width="32"
-                        Content="&#xe921;"
-                        FontFamily="Segoe Fluent Icons"
-                        Click="Button_Click_1"
-                        Style="{DynamicResource ButtonGroupItemHorizontalLast}" />
-                </hc:ButtonGroup>
-            </Grid>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <ListBox SelectionChanged="ListBox_SelectionChanged">
-                    <ListBoxItem Content="小部件管理" />
-                    <ListBoxItem Content="插件列表" />
-                    <ListBoxItem Content="关于" />
-                </ListBox>
-
-                <Frame
-                    x:Name="RootFrame"
-                    Grid.Column="1"
-                    Margin="8,0,0,0"
-                    NavigationUIVisibility="Hidden" />
-            </Grid>
-
+            </StackPanel>
+            <Border CornerRadius="8">
+                <Border.Background>
+                    <SolidColorBrush Color="#01000000" />
+                </Border.Background>
+            </Border>
+            <hc:ButtonGroup
+                Margin="4,2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Width="32"
+                    Click="Button_Click"
+                    Content="&#xe921;"
+                    FontFamily="Segoe Fluent Icons"
+                    Style="{DynamicResource ButtonGroupItemHorizontalFirst}" />
+                <Button
+                    Width="32"
+                    Click="Button_Click_1"
+                    Content="&#xe8bb;"
+                    FontFamily="Segoe Fluent Icons"
+                    Style="{DynamicResource ButtonGroupItemHorizontalLast}" />
+            </hc:ButtonGroup>
         </Grid>
-    </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ListBox
+                x:Name="nav"
+                Margin="8"
+                Padding="4"
+                hc:BorderElement.CornerRadius="8"
+                BorderThickness="0"
+                SelectionChanged="ListBox_SelectionChanged">
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock
+                            Margin="4"
+                            FontFamily="Segoe Fluent Icons"
+                            Text="&#xe71d;" />
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="卡片管理" />
+                        </TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock
+                            Margin="4"
+                            FontFamily="Segoe Fluent Icons"
+                            Text="&#xe74c;" />
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="插件列表" />
+                        </TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock
+                            Margin="4"
+                            FontFamily="Segoe Fluent Icons"
+                            Text="&#xe946;" />
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="关于" />
+                        </TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+            </ListBox>
+
+            <Frame
+                x:Name="RootFrame"
+                Grid.Column="1"
+                Margin="12"
+                NavigationUIVisibility="Hidden" />
+        </Grid>
+
+    </Grid>
+    <!--</hc:Card>-->
+
 </Window>

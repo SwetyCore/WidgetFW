@@ -24,8 +24,20 @@ namespace TestPlugin.Widgets
         VM.AISchedule vm;
         DispatcherTimer timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 30, 0) };
 
+        public class sectionTime
+        {
+            public int i { get; set; }
+            /// <summary>
+            /// 开始          
+            /// </summary>
+            public string s { get; set; }
+            /// <summary>
+            /// 结束
+            /// </summary>
+            public string e { get; set; }
+        }
 
-
+        public static List <sectionTime> sections = new List <sectionTime> ();
 
 
         #region 接口实现

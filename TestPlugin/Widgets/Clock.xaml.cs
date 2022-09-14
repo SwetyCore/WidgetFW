@@ -46,7 +46,7 @@ namespace TestPlugin.Widgets
         public Window WWindow { get; set; }
         public object Config { get; set; }
 
-        public Point Size => new Point(100, 100);
+        public Point Size => new Point(150, 150);
 
 
         private void DataUpdate()

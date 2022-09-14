@@ -26,7 +26,6 @@
             <wv2:WebView2
                 x:Name="wv2"
                 Grid.Row="1"
-                DefaultBackgroundColor="blue"
                 Initialized="wv2_Initialized" />
         </Grid>
     </Grid>

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Interop;
 using WidgetBase;
 using static WpfWidgetsFramework.VM.WidgetsManage;
 
@@ -11,6 +13,10 @@ namespace WpfWidgetsFramework
     /// </summary>
     public partial class WidgetWindow : Window
     {
+
+        [DllImport("user32.dll")]
+        static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
+
 
         IWidget widget;
         WidgetStatue ws;
@@ -27,6 +33,9 @@ namespace WpfWidgetsFramework
 
             Width = widget.Size.X * 1.25;
             Height = widget.Size.Y * 1.25;
+
+            IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
+            SetWindowLong(hWnd, (-20), 0x80);
         }
 
         private void WindowClose(object sender, RoutedEventArgs e)
@@ -56,17 +65,27 @@ namespace WpfWidgetsFramework
         private void ShowSetting(object sender, RoutedEventArgs e)
         {
             var mw = Application.Current.MainWindow;
-            if (!mw.IsLoaded)
+            try
             {
-                mw = new MainWindow();
-                mw.Show();
+                mw.Close();
             }
-            else
-            {
-                mw.WindowState = WindowState.Normal;
-                mw.Topmost = true;
-                mw.Topmost = false;
+            catch { 
+
             }
+
+            mw = new MainWindow();
+            mw.Show();
+            //if (!mw.IsLoaded)
+            //{
+            //    mw = new MainWindow();
+            //    mw.Show();
+            //}
+            //else
+            //{
+            //    mw.WindowState = WindowState.Normal;
+            //    mw.Topmost = true;
+            //    mw.Topmost = false;
+            //}
         }
 
         private void ExitApplication(object sender, RoutedEventArgs e)

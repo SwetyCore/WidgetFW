@@ -38,7 +38,7 @@ namespace TestPlugin.Widgets
         public object Config { get; set; }
 
         //30*4-10
-        public Point Size => new(200, 100);
+        public Point Size => new(200, 150);
 
         public Window WWindow { get; set; } = null;
 

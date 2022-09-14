@@ -15,9 +15,18 @@
     Foreground="White"
     mc:Ignorable="d">
     <Page.Resources>
+        <ResourceDictionary>
 
-        <convertor:WeatherIconConvertor x:Key="WeatherIconConvertor" />
-        <convertor:Str2IntConvertor x:Key="Str2IntConvertor" />
+            <convertor:WeatherIconConvertor x:Key="WeatherIconConvertor" />
+            <convertor:Str2IntConvertor x:Key="Str2IntConvertor" />
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Page.Resources>
     <Grid>
         <Border Padding="10" CornerRadius="10">
