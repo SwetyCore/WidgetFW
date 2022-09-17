@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Blend for Visual Studio Version 17
+# Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfWidgetsFramework", "WpfWidgetsFramework\WpfWidgetsFramework.csproj", "{D6D28037-B7DD-4753-BC23-2D983991E628}"
@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WidgetSDK", "WidgetBase\Wid
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{2D2B117F-3CB1-4A8C-873A-9569DF075353}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestPlugin", "TestPlugin\TestPlugin.csproj", "{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentStyle", "Plugins\FluentPlugin\FluentStyle.csproj", "{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultStyle", "Plugins\TestPlugin\DefaultStyle.csproj", "{9C39FA7E-729A-4644-A39B-CC670B09E279}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,20 +37,29 @@ Global
 		{C0E15556-7E86-49B5-A046-AA58144B4B72}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0E15556-7E86-49B5-A046-AA58144B4B72}.Release|x64.ActiveCfg = Release|Any CPU
 		{C0E15556-7E86-49B5-A046-AA58144B4B72}.Release|x64.Build.0 = Release|Any CPU
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}.Debug|x64.ActiveCfg = Debug|x64
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}.Debug|x64.Build.0 = Debug|x64
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}.Release|x64.ActiveCfg = Release|x64
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1}.Release|x64.Build.0 = Release|x64
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}.Debug|x64.Build.0 = Debug|Any CPU
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}.Release|x64.ActiveCfg = Release|Any CPU
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D}.Release|x64.Build.0 = Release|Any CPU
+		{9C39FA7E-729A-4644-A39B-CC670B09E279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C39FA7E-729A-4644-A39B-CC670B09E279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C39FA7E-729A-4644-A39B-CC670B09E279}.Debug|x64.ActiveCfg = Debug|x64
+		{9C39FA7E-729A-4644-A39B-CC670B09E279}.Debug|x64.Build.0 = Debug|x64
+		{9C39FA7E-729A-4644-A39B-CC670B09E279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C39FA7E-729A-4644-A39B-CC670B09E279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C39FA7E-729A-4644-A39B-CC670B09E279}.Release|x64.ActiveCfg = Release|x64
+		{9C39FA7E-729A-4644-A39B-CC670B09E279}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A2F2C058-C5DC-4A78-8F18-CCD8168220C1} = {2D2B117F-3CB1-4A8C-873A-9569DF075353}
+		{F6DDCDA2-E1A4-41EF-81A4-28307C91DA9D} = {2D2B117F-3CB1-4A8C-873A-9569DF075353}
+		{9C39FA7E-729A-4644-A39B-CC670B09E279} = {2D2B117F-3CB1-4A8C-873A-9569DF075353}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2A26ECB3-971A-4B56-8452-8E8FFA34DB96}

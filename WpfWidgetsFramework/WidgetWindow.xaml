@@ -30,6 +30,12 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Grid Margin="5">
-        <Frame x:Name="frame" BorderThickness="0" />
+        <Border
+            x:Name="defaultCard"
+            Background="White"
+            CornerRadius="8">
+
+            <Frame x:Name="frame" BorderThickness="0" />
+        </Border>
     </Grid>
 </Window>

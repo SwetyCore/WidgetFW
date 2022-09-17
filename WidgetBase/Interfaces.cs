@@ -28,7 +28,7 @@ namespace WidgetBase
         public string Description { get; }
         public Page Widget { get; }
 
-        public Window WWindow { get; set; }
+        public IWidgetWindow WWindow { get; set; }
 
         public Object Config { get; set; }
         public Point Size { get; }
@@ -36,6 +36,13 @@ namespace WidgetBase
 
         public Action OnEnabled { get; }
         public Action OnDisabled { get; }
+    }
+
+    public interface IWidgetWindow
+    {
+        public void UseDefaultCard(bool a);
+
+        public void Close();
     }
 
 }

@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
+using System.Windows.Media;
 using WidgetBase;
 using static WpfWidgetsFramework.VM.WidgetsManage;
 
@@ -11,7 +12,7 @@ namespace WpfWidgetsFramework
     /// <summary>
     /// WidgetWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class WidgetWindow : Window
+    public partial class WidgetWindow : Window, IWidgetWindow
     {
 
         [DllImport("user32.dll")]
@@ -36,6 +37,19 @@ namespace WpfWidgetsFramework
 
             IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
             SetWindowLong(hWnd, (-20), 0x80);
+        }
+
+        public void UseDefaultCard(bool a)
+        {
+            if (a)
+            {
+                defaultCard.Background = new SolidColorBrush(Color.FromArgb(255,255,255,255));
+            }
+            else
+            {
+                defaultCard.Background = new SolidColorBrush(Color.FromArgb(0, 255, 255, 255));
+
+            }
         }
 
         private void WindowClose(object sender, RoutedEventArgs e)

@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <DebugType>embedded</DebugType>
+	<EnableDynamicLoading>true</EnableDynamicLoading>
+
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Content Include="index.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpVectors" Version="1.8.0" />
+    <PackageReference Include="WPF-UI" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\aischedule.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\msnWeather.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\..\WidgetBase\WidgetSDK.csproj" >
+		  <Private>false</Private>
+		  <ExcludeAssets>runtime</ExcludeAssets>
+	  </ProjectReference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <!--将生成的主程序集复制到Plugins文件夹内-->
+	  <Exec Command="xcopy &quot;$(TargetDir)&quot; &quot;$(SolutionDir)WpfWidgetsFramework\bin\Debug\net6.0-windows\Plugins\FluentPlugin&quot; /y/e" />
+
+  </Target>
+
+</Project>
