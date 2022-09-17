@@ -33,7 +33,7 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock
                         FontFamily="Microsoft YaHei Light"
-                        FontSize="50"
+                        FontSize="64"
                         Text="{Binding HourAndMinute}" />
                     <TextBlock
                         Margin="5,10"

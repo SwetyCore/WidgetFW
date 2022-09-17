@@ -39,7 +39,7 @@ namespace WpfWidgetsFramework
             SetWindowLong(hWnd, (-20), 0x80);
         }
 
-        public void UseDefaultCard(bool a)
+        public void UseDefaultCard(bool a=true)
         {
             if (a)
             {

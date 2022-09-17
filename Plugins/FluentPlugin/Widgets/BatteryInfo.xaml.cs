@@ -59,7 +59,8 @@ namespace DefaultWidgets.Widgets
             dt.Start();
             dt_Tick(null, null);
 
-            
+            WWindow.UseDefaultCard(true);
+
         }
 
         void dt_Tick(object sender, EventArgs e)

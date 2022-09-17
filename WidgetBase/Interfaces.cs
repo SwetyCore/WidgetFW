@@ -40,7 +40,7 @@ namespace WidgetBase
 
     public interface IWidgetWindow
     {
-        public void UseDefaultCard(bool a);
+        public void UseDefaultCard(bool a=true);
 
         public void Close();
     }
