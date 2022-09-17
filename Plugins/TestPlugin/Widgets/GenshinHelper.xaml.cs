@@ -29,16 +29,14 @@ namespace DefaultStyle.Widgets
 
         public string UID => "genshinhelper";
 
-        public string Description => "[已失效]显示树脂和委托的小工具";
-
-
+        public string Description => "显示树脂和委托的小工具";
 
         public Page Widget => this;
 
         public object Config { get; set; }
 
         //30*4-10
-        public Point Size => new(300, 150);
+        public Point Size => new(200, 100);
         public IWidgetWindow WWindow { get; set; } = null;
 
 

@@ -47,6 +47,12 @@ namespace WpfWidgetsFramework.VM
                     }
                 }
             }
+
+            public string DisplayName
+            {
+                get { return $"[{plugin.Name}]{widget.WName}"; }
+            }
+
         }
 
         private ObservableCollection<WidgetStatue> _status;

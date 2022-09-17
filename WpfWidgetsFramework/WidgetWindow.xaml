@@ -32,7 +32,7 @@
     <Grid Margin="5">
         <Border
             x:Name="defaultCard"
-            Background="White"
+            Background="Transparent"
             CornerRadius="8">
 
             <Frame x:Name="frame" BorderThickness="0" />

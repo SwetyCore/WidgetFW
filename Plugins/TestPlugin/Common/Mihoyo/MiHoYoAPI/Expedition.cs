@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace DGP.Genshin.MiHoYoAPI.Record.DailyNote
+namespace Common.Mihoyo.MiHoYoAPI
 {
     /// <summary>
     /// 探索派遣

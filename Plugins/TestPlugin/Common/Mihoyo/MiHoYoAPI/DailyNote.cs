@@ -1,67 +1,10 @@
-﻿using DGP.Genshin.MiHoYoAPI.Record.DailyNote;
+﻿using Common.Mihoyo.MiHoYoAPI;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
 namespace DGP.Genshin.GamebarWidget.MiHoYoAPI
 {
-
-    //public class DailyNote
-    //{
-    //    /// <summary>
-    //    /// 当前树脂
-    //    /// </summary>
-    //    [JsonProperty("current_resin")] public int CurrentResin { get; set; }
-    //    /// <summary>
-    //    /// 最大树脂
-    //    /// </summary>
-    //    [JsonProperty("max_resin")] public int MaxResin { get; set; }
-    //    /// <summary>
-    //    /// 树脂恢复时间<see cref="string"/>类型的秒数
-    //    /// </summary>
-    //    [JsonProperty("resin_recovery_time")] public string ResinRecoveryTime { get; set; }
-
-    //    public string ResinFormatted
-    //    {
-    //        get
-    //        {
-    //            return $"{CurrentResin} / {MaxResin}";
-    //        }
-    //    }
-
-    //    public string ResinRecoveryTargetTimeFormatted
-    //    {
-    //        get
-    //        {
-    //            if (ResinRecoveryTime != null)
-    //            {
-    //                DateTime tt = DateTime.Now.AddSeconds(int.Parse(ResinRecoveryTime));
-    //                int totalDays = (tt - DateTime.Today).Days;
-    //                string day;
-    //                switch (totalDays)
-    //                {
-    //                    case 0: 
-    //                        day = "今天"; 
-    //                        break;
-    //                    case 1: 
-    //                        day = "明天"; 
-    //                        break;
-    //                    case 2: 
-    //                        day = "后天"; 
-    //                        break;
-    //                    default: 
-    //                        day = $"{totalDays}天"; 
-    //                        break;
-    //                };
-    //                return $"将于 {day} {tt:HH:mm} 完全恢复";
-    //            }
-    //            return null;
-    //        }
-    //    }
-    //}
-
-
-
     public class DailyNote
     {
         /// <summary>
@@ -73,30 +16,48 @@ namespace DGP.Genshin.GamebarWidget.MiHoYoAPI
         /// </summary>
         [JsonProperty("max_resin")] public int MaxResin { get; set; }
         /// <summary>
-        /// 树脂恢复时间 <see cref="string"/>类型的秒数
+        /// 树脂恢复时间<see cref="string"/>类型的秒数
         /// </summary>
-        [JsonProperty("resin_recovery_time")] public string? ResinRecoveryTime { get; set; }
+        [JsonProperty("resin_recovery_time")] public string ResinRecoveryTime { get; set; }
 
-        public string? ResinRecoveryTargetTimeFormatted
+        public string ResinFormatted
         {
             get
             {
-                if (ResinRecoveryTime is not null)
+                return $"{CurrentResin} / {MaxResin}";
+            }
+        }
+
+        public string ResinRecoveryTargetTimeFormatted
+        {
+            get
+            {
+                if (ResinRecoveryTime != null)
                 {
                     DateTime tt = DateTime.Now.AddSeconds(int.Parse(ResinRecoveryTime));
                     int totalDays = (tt - DateTime.Today).Days;
-                    string day = totalDays switch
+                    string day;
+                    switch (totalDays)
                     {
-                        0 => "今天",
-                        1 => "明天",
-                        2 => "后天",
-                        _ => $"{totalDays}天"
+                        case 0: 
+                            day = "今天"; 
+                            break;
+                        case 1: 
+                            day = "明天"; 
+                            break;
+                        case 2: 
+                            day = "后天"; 
+                            break;
+                        default: 
+                            day = $"{totalDays}天"; 
+                            break;
                     };
-                    return $"{day} {tt:HH:mm}";
+                    return $"将于 {day} {tt:HH:mm} 完全恢复";
                 }
                 return null;
             }
         }
+
 
         /// <summary>
         /// 委托完成数

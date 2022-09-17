@@ -10,6 +10,16 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -20,9 +30,12 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Menu>
-                <MenuItem Click="GetCookieBtn_Click" Header="我已登录" />
-            </Menu>
+            <StackPanel Margin="4" HorizontalAlignment="Left">
+                <Button
+                    Click="GetCookieBtn_Click"
+                    Content="我已登陆"
+                    Style="{DynamicResource ButtonPrimary}" />
+            </StackPanel>
             <wv2:WebView2
                 x:Name="wv2"
                 Grid.Row="1"
